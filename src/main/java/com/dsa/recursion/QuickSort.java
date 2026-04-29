@@ -5,68 +5,69 @@ import java.util.List;
 
 public class QuickSort {
 
-    private void swap(List<Integer> arr, int i, int j) {
-        int temp = arr.get(i);
-        arr.set(i, arr.get(j));
-        arr.set(j, temp);
+  private void swap(List<Integer> arr, int i, int j) {
+    int temp = arr.get(i);
+    arr.set(i, arr.get(j));
+    arr.set(j, temp);
+  }
+
+  private int fixPivotPosition(List<Integer> arr, int low, int high) {
+    int pivot = arr.get(low); // store pivot VALUE
+    int i = low;
+    int j = high;
+
+    while (i < j) {
+
+      while (i <= high - 1 && arr.get(i) <= pivot) {
+        i++;
+      }
+
+      while (j >= low + 1 && arr.get(j) > pivot) {
+        j--;
+      }
+
+      if (i < j) {
+        swap(arr, i, j);
+      }
     }
 
-    private int fixPivotPosition(List<Integer> arr, int low, int high) {
-        int pivot = arr.get(low); // store pivot VALUE
-        int i = low;
-        int j = high;
+    swap(arr, low, j); // place pivot in correct position
+    return j;
+  }
 
-        while (i < j) {
+  public void sort(List<Integer> arr, int low, int high) {
+    if (low >= high)
+      return;
 
-            while (i <= high - 1 && arr.get(i) <= pivot) {
-                i++;
-            }
+    int pivotIndex = fixPivotPosition(arr, low, high);
 
-            while (j >= low + 1 && arr.get(j) > pivot) {
-                j--;
-            }
+    sort(arr, low, pivotIndex - 1);
+    sort(arr, pivotIndex + 1, high);
+  }
 
-            if (i < j) {
-                swap(arr, i, j);
-            }
-        }
+  public void makeCall() {
+    List<Integer> list = new ArrayList<>();
 
-        swap(arr, low, j); // place pivot in correct position
-        return j;
+    list.add(4);
+    list.add(6);
+    list.add(2);
+    list.add(5);
+    list.add(7);
+    list.add(9);
+    list.add(1);
+    list.add(3);
+
+    int low = 0;
+    int high = list.size() - 1;
+
+    sort(list, low, high);
+
+    System.out.println("Sorted Array:");
+
+    for (int num : list) {
+      System.out.print(num + " ");
     }
 
-    public void sort(List<Integer> arr, int low, int high) {
-        if (low >= high) return;
-
-        int pivotIndex = fixPivotPosition(arr, low, high);
-
-        sort(arr, low, pivotIndex - 1);
-        sort(arr, pivotIndex + 1, high);
-    }
-
-    public void makeCall() {
-        List<Integer> list = new ArrayList<>();
-
-        list.add(4);
-        list.add(6);
-        list.add(2);
-        list.add(5);
-        list.add(7);
-        list.add(9);
-        list.add(1);
-        list.add(3);
-
-        int low = 0;
-        int high = list.size() - 1;
-
-        sort(list, low, high);
-
-        System.out.println("Sorted Array:");
-
-        for (int num : list) {
-            System.out.print(num + " ");
-        }
-
-        System.out.println();
-    }
+    System.out.println();
+  }
 }
