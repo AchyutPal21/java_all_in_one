@@ -1,11 +1,13 @@
 package com.dsa;
 
-import com.dsa.array.simple.IsPrime;
+import com.dsa.dynamicprogramming.Q2;
 
 public class Main {
 
     public static void main(String[] args) {
-        IsPrime p = new IsPrime();
-        System.out.println(p.solve(31));
+        Q2 q = new Q2();
+        int n = 3;
+        System.out.println("Distinct for " + n + " : " + q.countStepOpt(n));
+        
     }
 }
