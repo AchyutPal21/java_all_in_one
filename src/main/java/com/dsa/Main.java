@@ -1,13 +1,14 @@
 package com.dsa;
 
-import com.dsa.dynamicprogramming.Q2;
+import com.dsa.dynamicprogramming.ClimbingStairsII;
 
 public class Main {
 
     public static void main(String[] args) {
-        Q2 q = new Q2();
-        int n = 3;
-        System.out.println("Distinct for " + n + " : " + q.countStepOpt(n));
+        ClimbingStairsII q = new ClimbingStairsII();
+        int n = 4;
+        int[] costs = new int[]{1,2,3,4};
+        System.out.println("Min cost: " + q.climbStairs(n, costs));
         
     }
 }

@@ -17,7 +17,7 @@ Exp: (1 1 1), (1, 2), (2, 1)
 
 */
 
-public class Q2 {
+public class ClimbingStairs {
   public int solve(int n) {
     List<Integer> dp = new ArrayList<>();
     for (int i = 0; i <= n; i++) {
