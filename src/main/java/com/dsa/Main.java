@@ -1,14 +1,13 @@
 package com.dsa;
 
-import com.dsa.dynamicprogramming.ClimbingStairsII;
+import com.dsa.dynamicprogramming.ClimbKStairs;
 
 public class Main {
 
     public static void main(String[] args) {
-        ClimbingStairsII q = new ClimbingStairsII();
-        int n = 4;
-        int[] costs = new int[]{1,2,3,5};
-        System.out.println("Min cost: " + q.climbStairs(n, costs));
+        ClimbKStairs climb = new ClimbKStairs();
+        int count = climb.calcCostJumpTabularSOpt(4, new int[]{1,2,3,4});
+        System.out.println(count);
         
     }
 }
