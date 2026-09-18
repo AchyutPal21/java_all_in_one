@@ -17,15 +17,14 @@ public class ClimbKStairs {
 
         int min = Integer.MAX_VALUE;
         for (int i = 1; i <= k; i++) {
-            if (0 > n-i) break;
-
-            int cost = minEnergy(n-1, k, energy);
-            
-            if (Integer.MAX_VALUE != cost) {
-                cost += energy[n-1] + ((n-i)*(n-i));
-                min = Integer.min(min, cost);
+            if (n-i >= 0) {
+                int cost = minEnergy(n-i, k, energy);
+                if (Integer.MAX_VALUE != cost) {
+                    // energy[j] + (j-i)^2 => energy[j] + (n-(n-i))^2 => energy[j] + (i)^2
+                    cost += energy[n-1] + (i*i); 
+                    min = Integer.min(min, cost);
+                }
             }
-            
         }
 
         return  min;
