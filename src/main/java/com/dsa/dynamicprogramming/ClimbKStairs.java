@@ -5,7 +5,13 @@ import java.util.List;
 
 public class ClimbKStairs {
     public int solution(int n, int k, int[] energy) {
-        return minEnergy(n, k, energy);
+        // return minEnergy(n, k, energy);
+        int[] dp = new int[n+1];
+        for (int i = 0; i <= n; i++) {
+            dp[i] = -1;
+        }
+        return minEnergyTabulation(n, k, energy, dp);
+
     }
 
     // TC: O(k^n) SC: O(n)
@@ -69,13 +75,14 @@ public class ClimbKStairs {
             int min = Integer.MAX_VALUE;
             // Innter loop is for each K steps
             for (int j = 1; j <= k; j++) {
-                if (i+j <= n) {
-                    int cost = dp[i-1] + energy[i-1] + (j*j); // i is i, but j is i+j, So, (j-i)^2 => i+j - j => i
+                if (i-j >= 0) {
+                    int cost = dp[i-j] + energy[i-1] + (j*j); // i is i, but j is i+j, So, (j-i)^2 => i+j - j => i
                     min = Integer.min(min, cost);
                 }
             }
 
             dp[i] = min;
+            System.out.println("Min: " + min);
         }
 
         return  dp[n];
