@@ -6,9 +6,9 @@ public class Main {
 
     public static void main(String[] args) {
         ClimbKStairs climb = new ClimbKStairs();
-        int[] cost = new int[]{4, 2, 1, 5, 6, 3, 5, 2};
-        int count = climb.solution(8, 4, cost);
-        System.out.println(count);
+        int[] cost = new int[]{5, 1, 6, 2};
+        int count = climb.solution(cost.length, 3, cost);
+        System.out.println("Output: " + count);
         
     }
 }
