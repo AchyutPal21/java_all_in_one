@@ -61,7 +61,7 @@ public class ClimbKStairs {
         return  min;
     }
 
-    
+    // TC: O(k*n) SC: O(2n)
     private int minEnergyTabulation(int n, int k, int[] energy, int[] dp) {
         if (n < 0) {
             return Integer.MAX_VALUE;
@@ -75,7 +75,7 @@ public class ClimbKStairs {
             int min = Integer.MAX_VALUE;
             // Innter loop is for each K steps
             for (int j = 1; j <= k; j++) {
-                if (i-j >= 0) {
+                if (i-j >= 0) { // i-j is, from how many backward jumps can come to i
                     int cost = dp[i-j] + energy[i-1] + (j*j); // i is i, but j is i+j, So, (j-i)^2 => i+j - j => i
                     min = Integer.min(min, cost);
                 }
