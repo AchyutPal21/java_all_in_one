@@ -1,14 +1,19 @@
 package com.dsa;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.dsa.dynamicprogramming.ClimbKStairs;
+import com.dsa.dynamicprogramming.NinjaTraining;
 
 public class Main {
 
     public static void main(String[] args) {
-        ClimbKStairs climb = new ClimbKStairs();
-        int[] cost = new int[]{1, 2, 3, 4};
-        int count = climb.solution(4, 3, cost);
-        System.out.println(count);
-        
+        int[][] arr = new int[][] {
+            {10, 50, 1},
+            {5, 100, 11}
+        };
+        NinjaTraining nt = new NinjaTraining();
+        nt.solve(arr);
     }
 }
