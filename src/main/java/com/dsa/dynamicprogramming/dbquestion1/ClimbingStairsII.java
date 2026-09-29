@@ -1,4 +1,4 @@
-package com.dsa.dynamicprogramming;
+package com.dsa.dynamicprogramming.dbquestion1;
 // Question: Leetcode (Medium)
 
 // 3693. Climbing Stairs II

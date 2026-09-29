@@ -1,4 +1,4 @@
-package com.dsa.dynamicprogramming;
+package com.dsa.dynamicprogramming.dbquestion1;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.dsa.dynamicprogramming;
+package com.dsa.dynamicprogramming.dbquestion1;
 
 // [LeetCode][https://leetcode.com/problems/distinct-subsequences/description/]
 
