@@ -1,11 +1,20 @@
 package com.dsa;
 
-import com.dsa.dynamicprogramming.dpquestion3.TotalUniquePaths;
+import com.dsa.dynamicprogramming.dpquestion3.MazeObstacles;
 
 public class Main {
 
     public static void main(String[] args) {
-        TotalUniquePaths totalUniquePaths = new TotalUniquePaths();
-        System.out.println(totalUniquePaths.uniquePaths(19, 13));
+        int[][] maze = new int[][]{
+            {0, 0, 0},
+            {0, 1, 0},
+            {0, 0, 0}
+        };
+
+        
+        
+        MazeObstacles mazeObstacles = new MazeObstacles();
+        System.out.println(mazeObstacles.uniquePathsWithObstacles(maze));
+
     }
 }
