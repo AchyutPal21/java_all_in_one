@@ -6,7 +6,7 @@ package com.dsa.dynamicprogramming.dpquestion3;
  * https://leetcode.com/problems/unique-paths-ii/
  * MazeObstacles
  */
-public class MazeObstacles {
+public class UniquePathsII {
     public int uniquePathsWithObstacles(int[][] obstacleGrid) {
         int m = obstacleGrid.length;
         int n = obstacleGrid[0].length;
