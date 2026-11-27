@@ -1,0 +1,73 @@
+package com.concepts.dsa.recursion;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class QuickSort {
+
+  private void swap(List<Integer> arr, int i, int j) {
+    int temp = arr.get(i);
+    arr.set(i, arr.get(j));
+    arr.set(j, temp);
+  }
+
+  private int fixPivotPosition(List<Integer> arr, int low, int high) {
+    int pivot = arr.get(low); // store pivot VALUE
+    int i = low;
+    int j = high;
+
+    while (i < j) {
+
+      while (i <= high - 1 && arr.get(i) <= pivot) {
+        i++;
+      }
+
+      while (j >= low + 1 && arr.get(j) > pivot) {
+        j--;
+      }
+
+      if (i < j) {
+        swap(arr, i, j);
+      }
+    }
+
+    swap(arr, low, j); // place pivot in correct position
+    return j;
+  }
+
+  public void sort(List<Integer> arr, int low, int high) {
+    if (low >= high)
+      return;
+
+    int pivotIndex = fixPivotPosition(arr, low, high);
+
+    sort(arr, low, pivotIndex - 1);
+    sort(arr, pivotIndex + 1, high);
+  }
+
+  public void makeCall() {
+    List<Integer> list = new ArrayList<>();
+
+    list.add(4);
+    list.add(6);
+    list.add(2);
+    list.add(5);
+    list.add(7);
+    list.add(9);
+    list.add(1);
+    list.add(3);
+
+    int low = 0;
+    int high = list.size() - 1;
+
+    sort(list, low, high);
+
+    System.out.println("Sorted Array:");
+
+    for (int num : list) {
+      System.out.print(num + " ");
+    }
+
+    System.out.println();
+  }
+}
